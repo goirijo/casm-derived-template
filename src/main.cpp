@@ -16,6 +16,7 @@ int main()
 
     std::cout<<"I am a sad sad executable incapable of anything"<<std::endl;
     std::cout<<"Here is the CASM logo:"<<std::endl;
+    CASM::print_splash(std::cout);
 
 
     return 0;
