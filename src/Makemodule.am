@@ -1,0 +1,13 @@
+bin_PROGRAMS+=casm-derived
+
+casm_derived_SOURCES=./src/main.cpp
+
+#You probably don't need all (or any!) of these, but just in case they're being added.
+#If you installed the casm libraries you already have them installed so YOLO
+casm_derived_LDADD=$(BOOST_SYSTEM_LIB)\
+				   $(BOOST_FILESYSTEM_LIB)\
+				   $(BOOST_PROGRAM_OPTIONS_LIB)\
+				   $(BOOST_REGEX_LIB)\
+				   $(BOOST_CHRONO_LIB)
+
+
