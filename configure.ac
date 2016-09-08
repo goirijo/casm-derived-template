@@ -11,6 +11,9 @@ AM_INIT_AUTOMAKE([subdir-objects])
 
 AC_PROG_RANLIB
 
+#Allow renaming programs
+AC_ARG_PROGRAM
+
 # Checks for programs.
 AC_PROG_CXX
 AX_CXX_COMPILE_STDCXX_11
