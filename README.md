@@ -2,7 +2,7 @@
 Say goodbye to pulling your hair out figuring out compile flags. We all love casm, but sometimes you want to do something very specific that isn't in the main executables. You've got the libraries, so why not write your own executable? It all goes well until you try to compile/link. That's where this repository comes in to save the day.
 
 
-###Prerequisites
+### Prerequisites
 
 The build system here depends heavily on autotools. Since there is no actual executable, the burden on creating all the Makefiles and configure scripts falls on you. Don't worry! It's easy to set up. You just need to install a few packages:
 
@@ -13,11 +13,11 @@ The build system here depends heavily on autotools. Since there is no actual exe
 
 These should all be readily available via ```brew``` and ```apt-get```.
 
-###Installing your executable
+### Installing your executable
 
 The repository serves as a template for an executable that isn't written yet and is intended only for small executables that can be written in a single ```main.cpp``` file. If you're doing anything more complicated than that, consider contributing to [```goirijo/casm-utilities```](https://github.com/goirijo/casm-utilities), or [```CASM``` itself](https://github.com/prisms-center/CASMcode) if you have something more significant still.
 
-####Clone the repository
+#### Clone the repository
 ```
 git clone git@github.com:goirijo/casm-derived-template.git
 ```
@@ -27,17 +27,17 @@ git checkout -b fantastic_feature
 ```
 This way, if you decide you want to work on something else, you can go back to the master branch and checkout a completely different branch without affecting what you've already worked on.
 
-####Edit main.cpp
+#### Edit main.cpp
 The executable depends on a single file located in ```src/main.cpp```. Include whatever library headers you need and go to town. Make some supercells, use symmetry, do whatever cluster magic you want.
 
-####Create configure and Makefiles
+#### Create configure and Makefiles
 Once you've got all your code written up, you can prepare to compile it. Go to the root of the directory and run
 ```
 ./bootstrap.sh
 ```
 This will generate a bunch of files needed by ```make``` and the configure script.
 
-####Configure the compilation environment
+#### Configure the compilation environment
 If you're familiar with the usual autotools protocols to compile packages you can go do your usual thing. If you're unsure, follow these recommended steps:
 ```
 mkdir build
@@ -55,7 +55,7 @@ CPPFLAGS=-I$HOME/.local/include LDFLAGS=-L$HOME/.local/lib ../configure --prefix
 ```
 For convenience, I recommend you save the command above for when you inevitably come back later and forget what all the stuff you typed was.
 
-####Make and install your executable
+#### Make and install your executable
 This one is easy:
 ```
 make && make install
