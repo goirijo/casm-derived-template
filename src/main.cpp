@@ -1,5 +1,8 @@
 #include <iostream>
 #include <casm/CASM_global_definitions.hh>
+#include <casm/crystallography/Structure.hh>
+#include <casm/casm_io/VaspIO.hh>
+
 
 int main()
 {
@@ -18,6 +21,10 @@ int main()
     std::cout<<"Here is the CASM logo:"<<std::endl;
     CASM::print_splash(std::cout);
 
+    CASM::Structure mypos("POSCAR");
+
+    CASM::VaspIO::PrintPOSCAR myprint(mypos);
+    myprint.print(std::cout);
 
     return 0;
 }
