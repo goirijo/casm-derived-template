@@ -43,10 +43,11 @@ At this poing you're ready to run ```../configure```, but there's a few flags yo
 * ```CPPFLAGS``` will set preprocessor flags for you, namely ```-I``` for the compiler. Unless you've got the casm headers in a standard location, or have defined their path in ```CPLUS_INCLUDE_PATH```, ```make``` will be unable to include any headers. You'll need something like ```CPPFLAGS=-I$HOME/.local/include```.
 * ```--program-transform-name``` will let you rename the resulting executable, which by default is called ```casm-derived```. If you'd rather it be named ```casm-fantastic``` you can do ```--program-transform-name='s/casm-derived/casm-fantastic```
 
-One you've decided what flags to use you can run the configure script:
+Once you've decided what flags to use you can run the configure script:
 ```
 CPPFLAGS=-I$HOME/.local/include LDFLAGS=-L$HOME/.local/lib ../configure --prefix=$HOME/.local --program-transform-name='s/casm-derived/casm-fantastic/'
 ```
+Depending on your setup, you may need ```LDFLAGS``` to also include ```-ldl``` for the configure script to find the casm libraries.
 
 ####Make and install your executable
 This one is easy:
