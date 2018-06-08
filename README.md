@@ -55,6 +55,8 @@ CPPFLAGS=-I$HOME/.local/include LDFLAGS=-L$HOME/.local/lib ../configure --prefix
 ```
 Depending on your setup, you may need ```LDFLAGS``` to also include ```-ldl``` for the configure script to find the casm libraries.
 For convenience, I recommend you save the command above for when you inevitably come back later and forget what all the stuff you typed was.
+An additional caveat may involve the executable saying something along the lines of ```cannot find libcasm.so``` after compilation is installed.
+I'm still working on the "correct" way to fix the issue, but a solution seems to be do add ```$HOME/.local/lib``` (or wherever the lib folder with ```casmlib.so``` is) to the ```$LD_LIBRARY_PATH$``` environment variable.
 
 #### Make and install your executable
 This one is easy:
