@@ -1,23 +1,26 @@
 #include <iostream>
 #include <casm/CASM_global_definitions.hh>
+#include <casm/crystallography/Structure.hh>
+#include <casm/casm_io/VaspIO.hh>
 
 int main()
 {
     /**
-     * This is where you get to shine. Place all your code in here
-     * and use the infrastructure of the repository to compile
-     * and install.
-     *
-     * If you're interested in working with something more complicated
-     * than a single main.cpp file is convenient for, check out
-     * casm-utilities!
-     * https://github.com/goirijo/casm-utilities
+     * Let's read and write a POSCAR file
      */
 
-    std::cout<<"I am a sad sad executable incapable of anything"<<std::endl;
-    std::cout<<"Here is the CASM logo:"<<std::endl;
-    CASM::print_splash(std::cout);
+	// read
+	std::string infile = "POSCAR";
+	CASM::Structure input(infile);
 
-
+	// write
+	std::string outfile = "POSCAR_out";
+	CASM::VaspIO::PrintPOSCAR p(input);
+	p.sort();
+	CASM::fs::ofstream file;
+	file.open(outfile);
+	p.print(file);
+	file.close();
+	
     return 0;
 }
